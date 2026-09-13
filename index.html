@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0d12">
+  <title>Windows 11 Simulator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="boot" class="boot-screen">
+    <div class="windows-logo"><i></i><i></i><i></i><i></i></div>
+    <div class="boot-title">Starting Windows 11 Simulator</div>
+    <div class="loader"><span></span></div>
+  </div>
+
+  <section id="welcome" class="overlay hidden">
+    <div class="welcome-card">
+      <div class="mini-logo"><span></span><span></span><span></span><span></span></div>
+      <p class="eyebrow">Windows 11 Simulator</p>
+      <h1>Welcome.</h1>
+      <p>Experience a small, interactive Windows-style desktop right in your browser.</p>
+      <button id="welcomeNext" class="primary">Get started</button>
+    </div>
+  </section>
+
+  <section id="accountSetup" class="overlay hidden">
+    <div class="welcome-card setup-card">
+      <div class="avatar large">☺</div>
+      <p class="eyebrow">Set up your account</p>
+      <h1>Who's using this PC?</h1>
+      <p>Create a local simulator account. This is only a browser demo — it is not a real Windows account.</p>
+      <label>Your name<input id="setupName" maxlength="24" autocomplete="off" placeholder="Type your name"></label>
+      <label>Password<input id="setupPassword" type="password" maxlength="32" placeholder="Create a password"></label>
+      <button id="createAccount" class="primary">Continue</button>
+      <small>Your account is stored locally in this browser.</small>
+    </div>
+  </section>
+
+  <main id="os" class="os hidden">
+    <div id="wallpaper" class="wallpaper"></div>
+    <div id="desktop" class="desktop">
+      <div class="desktop-icons">
+        <button class="desktop-icon" data-open="explorer"><span class="icon big">📁</span><b>This PC</b></button>
+        <button class="desktop-icon" data-open="browser"><span class="icon big">🌐</span><b>Browser</b></button>
+        <button class="desktop-icon" data-open="recycle"><span class="icon big">♻</span><b>Recycle Bin</b></button>
+      </div>
+      <div id="windows"></div>
+      <div id="contextMenu" class="context-menu hidden">
+        <button data-context="refresh">↻ &nbsp; Refresh</button>
+        <button data-context="personalize">🎨 &nbsp; Personalize</button>
+        <button data-context="settings">⚙ &nbsp; Display settings</button>
+      </div>
+    </div>
+
+    <div id="startMenu" class="start-menu hidden">
+      <div class="start-search"><span>⌕</span><input id="startSearch" placeholder="Search apps, settings, and documents"></div>
+      <div class="start-section"><div class="section-title">Pinned <button id="allApps">All apps ›</button></div><div id="pinnedApps" class="app-grid"></div></div>
+      <div class="start-section recent"><div class="section-title">Recommended</div><div class="recommended"><button data-open="notepad"><span>📝</span><div><b>Notepad</b><small>Just now</small></div></button><button data-open="calculator"><span>🧮</span><div><b>Calculator</b><small>Frequently used</small></div></button></div></div>
+      <div class="start-footer"><button id="startUser"><span class="avatar small">☺</span><b id="startUserName">User</b></button><button id="powerButton">⏻</button></div>
+    </div>
+
+    <div id="searchPanel" class="search-panel hidden">
+      <div class="start-search"><span>⌕</span><input id="globalSearch" placeholder="Search"></div>
+      <div id="searchResults" class="search-results"><p>Type to search apps.</p></div>
+    </div>
+
+    <div id="quickPanel" class="quick-panel hidden">
+      <div class="quick-grid"><button>📶<small>Wi-Fi</small></button><button>✈<small>Airplane</small></button><button>🔵<small>Bluetooth</small></button><button>🔕<small>Focus</small></button></div>
+      <label>🔆 <input id="brightness" type="range" min="50" max="120" value="100"></label>
+      <label>🔊 <input id="volume" type="range" min="0" max="100" value="70"></label>
+      <button id="quickSettings" class="wide-button">⚙ Open Settings</button>
+    </div>
+
+    <div class="taskbar">
+      <button class="task-icon start-btn" id="startBtn" aria-label="Start"><span class="winmark"><i></i><i></i><i></i><i></i></span></button>
+      <button class="task-icon" id="searchBtn">⌕</button>
+      <div id="taskApps" class="task-apps"></div>
+      <div class="task-spacer"></div>
+      <button class="tray" id="trayBtn"><span>⌃</span><span>📶</span><span>🔊</span><span>🔋</span></button>
+      <button class="clock" id="clock"><b>12:00</b><small>1/1/2026</small></button>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+  </main>
+
+  <div id="signin" class="signin hidden">
+    <div class="signin-bg"></div>
+    <div class="signin-content">
+      <div class="avatar huge">☺</div>
+      <h2 id="signinName">User</h2>
+      <input id="signinPassword" type="password" placeholder="Password" autocomplete="off">
+      <button id="signinButton" class="signin-arrow">→</button>
+      <p id="signinError" class="error"></p>
+      <button id="switchUser">Sign-in options</button>
+    </div>
+    <div class="signin-corner"><span>⌁</span><span>◉</span><span>🔋</span></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
