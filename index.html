@@ -20,7 +20,7 @@
       <p class="eyebrow">Windows 11 Simulator</p>
       <h1>Welcome.</h1>
       <p>Experience a small, interactive Windows-style desktop right in your browser.</p>
-      <button id="welcomeNext" class="primary">Get started</button>
+      <button id="welcomeNext" class="primary" type="button">Get started</button>
     </div>
   </section>
 
@@ -30,9 +30,9 @@
       <p class="eyebrow">Set up your account</p>
       <h1>Who's using this PC?</h1>
       <p>Create a local simulator account. This is only a browser demo — it is not a real Windows account.</p>
-      <label>Your name<input id="setupName" maxlength="24" autocomplete="off" placeholder="Type your name"></label>
-      <label>Password<input id="setupPassword" type="password" maxlength="32" placeholder="Create a password"></label>
-      <button id="createAccount" class="primary">Continue</button>
+      <label for="setupName">Your name<input id="setupName" name="setupName" maxlength="24" autocomplete="off" placeholder="Type your name" type="text"></label>
+      <label for="setupPassword">Password<input id="setupPassword" name="setupPassword" type="password" maxlength="32" autocomplete="new-password" placeholder="Create a password"></label>
+      <button id="createAccount" class="primary" type="button">Continue</button>
       <small>Your account is stored locally in this browser.</small>
     </div>
   </section>
